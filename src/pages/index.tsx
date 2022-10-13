@@ -6,16 +6,20 @@ import Chair from '../components/objects/Chair'
 import Grass3D from '../components/objects/Grass3D'
 import { CubeTextureLoader } from 'three'
 import Head from 'next/head'
+import { useDebugger } from '../components/hooks/debugger-tool'
+import { ToolTip2 } from '../components/debugging-objects/ToolTips'
 
 
 export default function App() {
+
+
   return (
     <>
     <Head>
       <meta name="theme-color" content="black"></meta>
     </Head>
     <Canvas style={{ height: '100vh', width: '100vw'}}  shadows dpr={[1, 2]} camera={{ position: [-2, 2, 6], fov: 50, near: 1, far: 20 }}>
-        <OrbitControls    />
+     
       <color attach="background" args={['#202020']} />
       <fog attach="fog" args={['#202020', 5, 20]} />
       <ambientLight intensity={1} />
@@ -49,8 +53,26 @@ function SkyBox() {
 function Scene() { 
 
   const chairRef = useRef<any>(null);
+  const orbitRef = useRef<any>(null);
+  const {
+    controls,
+    xPos,
+    yPos,
+    zPos
+  } = useDebugger([0,0,0]);
+  if (orbitRef) {
+    debugger;
+  }
   return (
     <>
+
+      <OrbitControls
+        ref={orbitRef}
+        enableZoom={false}
+        position={[xPos,yPos,zPos]}
+        maxAzimuthAngle={Math.PI}
+        maxPolarAngle={Math.PI/2}
+      />
 
       <TVSet
         target={chairRef}
