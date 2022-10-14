@@ -1,34 +1,32 @@
 import { useRef } from 'react'
 import { Canvas, useThree } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
-import { TVSet } from '../components/objects/TVSet'
+import { TVSet } from '../components/objects/AlbumBoxWithLight'
 import Chair from '../components/objects/Chair'
-import Grass3D from '../components/objects/Grass3D'
+import Grass3D from '../components/environments-objects/Grass3D'
 import { CubeTextureLoader } from 'three'
 import Head from 'next/head'
-import { useDebugger } from '../components/hooks/debugger-tool'
-import { ToolTip2 } from '../components/debugging-objects/ToolTips'
-
 
 export default function App() {
-
-
   return (
     <>
-    <Head>
-      <meta name="theme-color" content="black"></meta>
-    </Head>
-    <Canvas style={{ height: '100vh', width: '100vw'}}  shadows dpr={[1, 2]} camera={{ position: [-2, 2, 6], fov: 50, near: 1, far: 20 }}>
-     
-      <color attach="background" args={['#202020']} />
-      <fog attach="fog" args={['#202020', 5, 20]} />
-      <ambientLight intensity={1} />
-      <Scene />
-      <SkyBox />
-      {/* <Environment files="https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/hdris/noon-grass/noon_grass_1k.hdr" background /> */}
-    </Canvas>
+      <Head>
+        <meta name="theme-color" content="black"></meta>
+      </Head>
+      <Canvas
+        style={{ height: '100vh', width: '100vw'}}
+        shadows
+        dpr={[1, 2]}
+        camera={{ position: [-2, 2, 6], fov: 50, near: 1, far: 20 }}
+      >
+        <color attach="background" args={['#202020']} />
+        <fog attach="fog" args={['#202020', 5, 20]} />
+        <ambientLight intensity={1} />
+        <Scene />
+        <SkyBox />
+      </Canvas>
 
-    <div id="portal"></div>
+      <div id="portal"></div>
     </>
   )
 }
@@ -51,35 +49,17 @@ function SkyBox() {
 }
 
 function Scene() { 
-
   const chairRef = useRef<any>(null);
-  const orbitRef = useRef<any>(null);
-  const {
-    controls,
-    xPos,
-    yPos,
-    zPos
-  } = useDebugger([0,0,0]);
-  if (orbitRef) {
-    debugger;
-  }
+
   return (
     <>
-
       <OrbitControls
-        ref={orbitRef}
-        enableZoom={false}
-        position={[xPos,yPos,zPos]}
         maxAzimuthAngle={Math.PI}
         maxPolarAngle={Math.PI/2}
       />
 
-      <TVSet
-        target={chairRef}
-      />
-  
+      <TVSet target={chairRef} />
       <Chair />
-
       <Grass3D />
   
       <mesh receiveShadow position={[0, -1, 0]} rotation-x={-Math.PI / 2}>

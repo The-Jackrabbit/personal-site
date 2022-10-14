@@ -1,33 +1,18 @@
 import { useGLTF } from '@react-three/drei'
 import { Model } from './Sketch';
 
-
 interface FlatCoord {
   x: number;
   z: number;
   s: number;
 }
-/**
- * 1 (0, 0)
- * 1 (1, 1)
- * 1 (2, 2)
- * 2 (3, 3)
- * 2 (5, 5)
- * 2 (7, 7)
- * 3 (9, 9)
- * 3 (12, 12)
- * 3 (15, 1)
- * 
- * 
- * 3 3 3   3 3 
- */
 
 const generateList = () => {
   const list: FlatCoord[] = [
 
   ];
-  for (let i = -5 ; i < 5 ; i+=0.5) {
-    for (let j = -5 ; j < 5 ; j+=0.5) {
+  for (let i = -1 ; i < 1 ; i+=0.5) {
+    for (let j = -5 ; j < 1 ; j+=0.5) {
       list.push({
         x: 4*i,
         z: 4*j,
