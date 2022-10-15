@@ -11,21 +11,17 @@ interface Props {
 const colors = [
   'hotpink',
   'darkgreen',
-  'royalblue',
+  'red',
 ];
-const albums = [
-  './assets/Bjork_Post.png',
-  './assets/The_Glow_Pt_2.png',
-  './assets/if_youre_feeling_sinister.jpeg',
-]
-albums.forEach((album) => useGLTF.preload(album))
-export const TVSet: React.FC<Props> = ({
+
+export const AlbumBoxWithLight: React.FC<Props> = ({
   target,
 }) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const tvSetRef = useRef<any>()
   const [indexOfColorToRender, setindexOfColorToRender] = useState(1);
   const [dirToBob, setdirToBob] = useState('UP');
+  const [iteration, setiteration] = useState(0);
 
   useFrame(() => {
     if (tvSetRef && tvSetRef.current && tvSetRef.current.rotation) {
@@ -42,6 +38,15 @@ export const TVSet: React.FC<Props> = ({
         setdirToBob('UP');
       }
     }
+
+    if (iteration % 200 === 0) {
+      changeAlbum();
+    }
+
+    if (iteration > 1000000) {
+      setiteration(0);
+    }
+    setiteration(iteration+1);
   });
   const changeAlbum = () => {
     setindexOfColorToRender((indexOfColorToRender+1)%colors.length);
@@ -80,3 +85,9 @@ export const TVSet: React.FC<Props> = ({
   )
 }
 
+const albums = [
+  './assets/Bjork_Post.png',
+  './assets/The_Glow_Pt_2.png',
+  './assets/if_youre_feeling_sinister.jpeg',
+]
+albums.forEach((album) => useGLTF.preload(album))

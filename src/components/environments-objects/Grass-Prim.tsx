@@ -31,4 +31,4 @@ export function Model(props: JSX.IntrinsicElements['group']) {
   )
 }
 
-useGLTF.preload('/sketch.gltf')
+useGLTF.preload('./assets/grass/sketch.gltf')

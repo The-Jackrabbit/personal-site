@@ -13,11 +13,12 @@ export const OrbitCamera = (props: any) => {
     <OrbitControls
       enablePan={false}
       enableZoom={false}
+      zoom0={-1}
       makeDefault
       ref={ref}
       target={[-0.85, 1.75, -0.82]}
       maxPolarAngle={Math.PI/2}
-      minPolarAngle={Math.PI/2 - 0.2}
+      minPolarAngle={Math.PI/2 - 0.35}
       minAzimuthAngle={-0.35}
       maxAzimuthAngle={0.2}
     />

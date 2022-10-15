@@ -1,5 +1,5 @@
 import { useGLTF } from '@react-three/drei'
-import { Model } from './Sketch';
+import { Model } from './Grass-Prim';
 
 interface FlatCoord {
   x: number;
@@ -11,8 +11,8 @@ const generateList = () => {
   const list: FlatCoord[] = [
 
   ];
-  for (let i = -1 ; i < 1 ; i+=0.5) {
-    for (let j = -5 ; j < 1 ; j+=0.5) {
+  for (let i = -2 ; i < 2 ; i+=0.5) {
+    for (let j = -3 ; j < 1 ; j+=0.5) {
       list.push({
         x: 4*i,
         z: 4*j,
