@@ -1,9 +1,9 @@
 import { Stars } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import Head from 'next/head'
-import SkyBox from '../components/environments-objects/SkyBox'
 import { Scene } from './scenes/MainScene'
 import { Perf } from "r3f-perf";
+
 export default function App() {
   return (
     <>

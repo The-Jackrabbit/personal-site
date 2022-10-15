@@ -7,7 +7,9 @@ import { HoveringLinks } from '../../components/html/HoveringLinks';
 import { Chair } from '../../components/objects/Chair';
 
 export function Scene() { 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const chairRef = useRef<any>(null);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [, setOrbitRef] = useState<any>(null);
 
   return (
