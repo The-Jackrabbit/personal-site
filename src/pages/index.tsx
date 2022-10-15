@@ -1,11 +1,7 @@
-import { useRef } from 'react'
-import { Canvas, useThree } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
-import { TVSet } from '../components/objects/AlbumBoxWithLight'
-import Chair from '../components/objects/Chair'
-import Grass3D from '../components/environments-objects/Grass3D'
-import { CubeTextureLoader } from 'three'
+import { Canvas } from '@react-three/fiber'
 import Head from 'next/head'
+import SkyBox from '../components/environments-objects/SkyBox'
+import { Scene } from './scenes/MainScene'
 
 export default function App() {
   return (
@@ -27,45 +23,6 @@ export default function App() {
       </Canvas>
 
       <div id="portal"></div>
-    </>
-  )
-}
-
-function SkyBox() {
-  const { scene } = useThree();
-  const loader = new CubeTextureLoader();
-  // The CubeTextureLoader load method takes an array of urls representing all 6 sides of the cube.
-  const texture = loader.load([
-    "./assets/5.jpeg",
-    "./assets/5.jpeg",
-    "./assets/5.jpeg",
-    "./assets/5.jpeg",
-    "./assets/5.jpeg",
-    "./assets/5.jpeg",
-  ]);
-  // Set the scene background property to the resulting texture.
-  scene.background = texture;
-  return null;
-}
-
-function Scene() { 
-  const chairRef = useRef<any>(null);
-
-  return (
-    <>
-      <OrbitControls
-        maxAzimuthAngle={Math.PI}
-        maxPolarAngle={Math.PI/2}
-      />
-
-      <TVSet target={chairRef} />
-      <Chair />
-      <Grass3D />
-  
-      <mesh receiveShadow position={[0, -1, 0]} rotation-x={-Math.PI / 2}>
-        <planeGeometry args={[50, 50]} />
-        <meshPhongMaterial color={"#003300"}/>
-      </mesh>
     </>
   )
 }
