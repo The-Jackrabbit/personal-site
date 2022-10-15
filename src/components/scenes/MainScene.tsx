@@ -5,6 +5,7 @@ import Grass3D from '../environments-objects/Grass3D';
 import { OrbitCamera } from '../cameras/OrbitCamera';
 import { HoveringLinks } from '../html/HoveringLinks';
 import { Chair } from '../objects/Chair';
+import { Credits } from '../html/Credits';
 
 export function MainScene() { 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -26,6 +27,8 @@ export function MainScene() {
         <planeGeometry args={[50, 50]} />
         <meshPhongMaterial color={"#003300"}/>
       </mesh>
+
+      <Credits />
     </>
   )
 }

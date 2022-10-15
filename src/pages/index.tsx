@@ -19,9 +19,7 @@ export default function App() {
         <ambientLight intensity={1} />
         <MainScene />
       </Canvas>
-      <p>This work is based on {'"'}Folding Chair - Low Poly{'"'} (https://sketchfab.com/3d-models/folding-chair-low-poly-54bd0acd7c524d678128367a25a0f504) by Jeremy E. Grayson (https://sketchfab.com/JeremyGrayson) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)</p>
 
-      <p>This work is based on {'"'}Grass{'"'} (https://sketchfab.com/3d-models/grass-4b800e07ea3543e3870ad5e53b39d825) by MauroGonzalezA (https://sketchfab.com/MauroGonzalezA) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)</p>
     </>
   )
 }
