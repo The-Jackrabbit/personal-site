@@ -1,8 +1,10 @@
 import { useRef, useEffect } from 'react';
 import { OrbitControls } from '@react-three/drei';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const OrbitCamera = (props: any) => {
   const { setControls } = props;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const ref = useRef<any>();
 
   useEffect(() => {
