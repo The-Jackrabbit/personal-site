@@ -9,6 +9,7 @@ interface Props {
   target: { current: any } | null;
 }
 const colors = [
+  'royalblue',
   'hotpink',
   'darkgreen',
   'red',
@@ -65,6 +66,9 @@ export const AlbumBoxWithLight: React.FC<Props> = ({
             {indexOfColorToRender === 2 && (
               <AlbumBox path={albums[2] as string}  />            
             )}
+              {indexOfColorToRender === 3 && (
+              <AlbumBox path={albums[3] as string}  />            
+            )}
           </group>
 
           {target && (
@@ -86,6 +90,7 @@ export const AlbumBoxWithLight: React.FC<Props> = ({
 }
 
 const albums = [
+  './assets/ys.jpeg',
   './assets/Bjork_Post.png',
   './assets/The_Glow_Pt_2.png',
   './assets/if_youre_feeling_sinister.jpeg',
