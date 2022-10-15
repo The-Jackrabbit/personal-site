@@ -1,8 +1,7 @@
 import { Stars } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import Head from 'next/head'
-import { Scene } from './scenes/MainScene'
-import { Perf } from "r3f-perf";
+import { MainScene } from '../components/scenes/MainScene'
 
 export default function App() {
   return (
@@ -19,13 +18,10 @@ export default function App() {
         <color attach="background" args={['#202020']} />
         <fog attach="fog" args={['#202020', 5, 20]} />
         <ambientLight intensity={1} />
-        <Scene />
+        <MainScene />
         {/* <SkyBox /> */}
         <Stars />
-        <Perf />
       </Canvas>
-
-      <div id="portal"></div>
     </>
   )
 }

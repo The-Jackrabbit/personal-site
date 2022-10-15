@@ -1,12 +1,12 @@
 import { useRef,useState } from 'react';
-import { AlbumBoxWithLight } from '../../components/objects/AlbumBoxWithLight';
+import { AlbumBoxWithLight } from '../objects/AlbumBoxWithLight';
 
-import Grass3D from '../../components/environments-objects/Grass3D';
-import { OrbitCamera } from '../../components/cameras/OrbitCamera';
-import { HoveringLinks } from '../../components/html/HoveringLinks';
-import { Chair } from '../../components/objects/Chair';
+import Grass3D from '../environments-objects/Grass3D';
+import { OrbitCamera } from '../cameras/OrbitCamera';
+import { HoveringLinks } from '../html/HoveringLinks';
+import { Chair } from '../objects/Chair';
 
-export function Scene() { 
+export function MainScene() { 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const chairRef = useRef<any>(null);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -29,3 +29,5 @@ export function Scene() {
     </>
   )
 }
+
+export default MainScene;
